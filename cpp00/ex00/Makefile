@@ -8,7 +8,7 @@ all: $(NAME)
 	$(C++) $(SRC) $(CFLAGS) -o $(NAME)
 
 clean:
-	rm -f $(OBJ)
+	rm -f $(NAME)
 
 fclean: clean
 	rm -f $(NAME)
