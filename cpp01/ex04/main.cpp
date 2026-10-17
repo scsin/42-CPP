@@ -1,59 +1,76 @@
 #include <iostream>
-#include <string>
 #include <fstream>
-#include <typeinfo>
+#include <string>
 
-// create a new file called ([filename].replace)
-  // open file for writing
-  // std::ofstream(filename, std::ios::binary)
-  //               .write(reinterpret_cast<char*>(&d), sizeof d) << 123 << "abc";
-// check errors
-
-// __________________________________________________________________________________________
-
-// read from filename
-/*char c = fs.get();
-
-// check errors when opening/reading from filename
-
-while (fs.good()) {
-std::cout << c;
-c = fs.get();
-// if (ft_strcmp(str, s1, std::size(s1)))
-  // replace_and_write()
-}
-*/
-// __________________________________________________________________________________________
-
-// replace_and_write
-// update s1 with s2
-  // check errors when updating s1 with s2
-// write to [filename].replace
-  // check errors when writing to filename.replace
-
-int file_exists(const std::string& filename)
+/* file_helpers.cpp */
+void replace_and_write(std::ofstream &fs, char content, std::string s1, std::string s2)
 {
-  std::ifstream fs;
+  (void)s1;
+  (void)s2;
+  // update s1 with s2
+  // check errors when updating s1 with s2
+
+  fs.write(&content, sizeof content);
+  // check errors
+}
+
+void  read_file(std::ifstream &fs, std::ofstream &fs_replace, std::string s1, std::string s2)
+{
+  char c = fs.get();
+
+  while (fs.good())
+  {
+    replace_and_write(fs_replace, c, s1, s2);
+    c = fs.get();
+  }
+}
+
+std::ofstream create_new_file(std::string name)
+{
+  std::ofstream ofs(name + ".replace");
+  return (ofs);
+}
+
+int file_exists(std::ifstream &fs, const std::string filename)
+{
   fs.open(filename, std::ifstream::in);
 
   return fs.is_open();
 }
+/* file_helpers.cpp */
+
+
+/* validation.cpp */
+bool valid_params(std::ifstream &fs, char **av)
+{
+  if (file_exists(fs, av[1])
+      && !std::string(av[2]).empty()
+      && !std::string(av[3]).empty())
+    return (true);
+  return (false);
+}
+/* validation.cpp */
 
 int main(int ac, char **av)
 {
-  (void)av;
   if (ac != 4)
   {
     std::cout << "Error: Missing params" << std::endl;
     return (1);
   }
 
-  if (file_exists(av[1]) && !((std::string)av[2]).empty() && !((std::string)av[3]).empty())
+  std::ifstream fs;
+  std::ofstream fs_replace;
+  if (valid_params(fs, av))
   {
+    fs_replace = create_new_file(av[1]);
+    read_file(fs, fs_replace, av[2], av[3]);
     std::cout << "Success: Valid params" << std::endl;
+    fs.close();
     return (0);
   }
+
   std::cout << "Error: Invalid params" << std::endl;
-  // fs.close();
+  fs.close();
   return (1);
 }

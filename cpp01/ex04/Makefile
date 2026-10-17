@@ -1,6 +1,7 @@
 NAME			= ex04
 C++				= c++
 C++FLAGS	= -Wall -Wextra -Werror -std=c++98
+REPLACE		= *.replace
 
 SRC				= main.cpp
 
@@ -17,7 +18,7 @@ $(NAME): $(OBJ)
 	$(C++) $(C++FLAGS) $(OBJ) -o $(NAME)
 
 clean:
-	rm -f $(OBJ)
+	rm -f $(OBJ) $(REPLACE)
 
 fclean: clean
 	rm -f $(NAME)
