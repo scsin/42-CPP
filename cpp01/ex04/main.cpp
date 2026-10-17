@@ -3,25 +3,24 @@
 #include <string>
 
 /* file_helpers.cpp */
-void replace_and_write(std::ofstream &fs, char content, std::string s1, std::string s2)
+void replace_and_write(std::ofstream &fs_replace, std::string line, std::string s1, std::string s2)
 {
   (void)s1;
   (void)s2;
-  // update s1 with s2
-  // check errors when updating s1 with s2
 
-  fs.write(&content, sizeof content);
+  fs_replace.write(line.c_str(), line.size());
+
   // check errors
 }
 
 void  read_file(std::ifstream &fs, std::ofstream &fs_replace, std::string s1, std::string s2)
 {
-  char c = fs.get();
+  std::string line;
 
-  while (fs.good())
+  while (std::getline(fs, line))
   {
-    replace_and_write(fs_replace, c, s1, s2);
-    c = fs.get();
+    line += '\n';
+    replace_and_write(fs_replace, line, s1, s2);
   }
 }
 
