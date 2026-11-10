@@ -6,11 +6,12 @@
 
 class PhoneBook {
     public:
-        Contact contact_list[10];
+        Contact contact_list[8];
 
     public:
-        Contact add();
-        std::string list();
+        void create_contact();
+        std::string add_to_list(Contact contact);
+        std::string get_list();
 };
 
 #endif

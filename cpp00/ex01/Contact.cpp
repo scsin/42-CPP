@@ -1,17 +1,18 @@
 #include <iostream>
 #include "Contact.hpp"
+#include "helpers.hpp"
 
 void Contact::new_contact()
 {
-    std::cout << "Type first name: ";
+    print_message("Type first name: ");
     std::getline(std::cin, f_name);
-    std::cout << "Type last name: ";
+    print_message("Type last name: ");
     std::getline(std::cin, l_name);
-    std::cout << "Type nickname: ";
+    print_message("Type nickname: ");
     std::getline(std::cin, nickname);
-    std::cout << "Type phone number: ";
+    print_message("Type phone number: ");
     std::getline(std::cin, p_number);
-    std::cout << "Type darkest secret: ";
+    print_message("Type darkest secret: ");
     std::getline(std::cin, d_secret);
 }
 

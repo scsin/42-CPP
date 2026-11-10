@@ -1,6 +1,6 @@
 #include <iostream>
 #include "PhoneBook.hpp"
-#include "Greetings.hpp"
+#include "helpers.hpp"
 
 int option_converter(std::string option)
 {
@@ -14,26 +14,22 @@ int option_converter(std::string option)
         return (-1);
 }
 
-void    enter_valid_command()
-{
-    std::cout << "Enter one command: ";
-}
-
 int main()
 {
     greetings();
     std::string option;
     int option_int = -1;
     PhoneBook phonebook;
+
     while (option_int != 2)
     {
         if (option_int == 0)
-            phonebook.add();
+            phonebook.create_contact();
         if (option_int == 1)
-            phonebook.list();
-        enter_valid_command();
+            phonebook.get_list();
+        print_message("Enter one command: ");
         std::getline(std::cin, option);
         option_int = option_converter(option);
     }
-    std::cout << "Exiting Awesome PhoneBook" << "\n";
+    print_message("Exiting Awesome PhoneBook");
 }

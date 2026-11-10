@@ -3,7 +3,7 @@ C++             = c++
 C++FLAGS        = -Wall -Wextra -Werror -std=c++98
 
 SRC             = main.cpp \
-				  Greetings.cpp \
+				  helpers.cpp \
 				  PhoneBook.cpp \
 				  Contact.cpp
 

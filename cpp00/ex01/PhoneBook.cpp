@@ -1,20 +1,26 @@
 #include "PhoneBook.hpp"
-#include <iostream> // remover
+#include "helpers.hpp"
+#include <string> // remover
 
-Contact PhoneBook::add()
+void PhoneBook::create_contact()
 {
     Contact contact;
     contact.new_contact();
-    /*std::cout << contact.get_f_name() << "\n";
-    std::cout << contact.get_l_name() << "\n";
-    std::cout << contact.get_nickname() << "\n";
-    std::cout << contact.get_p_number() << "\n";
-    std::cout << contact.get_d_secret() << "\n";*/
-    return contact;
+    add_to_list(contact);
 }
 
-std::string PhoneBook::list()
+std::string PhoneBook::add_to_list(Contact contact)
 {
-    std::cout << "LIST\n";
-    return "LIST\n";
+    contact_list[0] = contact;
+    return "added\n";
+}
+
+std::string PhoneBook::get_list()
+{
+    print_message(contact_list[0].get_f_name());
+    print_message(contact_list[0].get_l_name());
+    print_message(contact_list[0].get_nickname());
+    print_message(contact_list[0].get_p_number());
+    print_message(contact_list[0].get_d_secret());
+    return "get_list\n";
 }
