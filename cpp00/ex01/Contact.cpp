@@ -2,7 +2,7 @@
 #include "Contact.hpp"
 #include "helpers.hpp"
 
-void Contact::new_contact()
+bool Contact::new_contact()
 {
     print_message("Type first name: ");
     std::getline(std::cin, f_name);
@@ -14,6 +14,9 @@ void Contact::new_contact()
     std::getline(std::cin, p_number);
     print_message("Type darkest secret: ");
     std::getline(std::cin, d_secret);
+    if (value_is_empty(f_name, l_name, nickname, p_number, d_secret))
+        return (false);
+    return (true);
 }
 
 std::string Contact::get_f_name()

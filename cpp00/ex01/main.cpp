@@ -26,7 +26,7 @@ int main()
         if (option_int == 0)
             phonebook.create_contact();
         if (option_int == 1)
-            phonebook.get_list();
+            phonebook.print_list();
         print_message("Enter one command: ");
         std::getline(std::cin, option);
         option_int = option_converter(option);

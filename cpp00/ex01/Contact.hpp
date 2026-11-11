@@ -12,7 +12,7 @@ class Contact {
         std::string d_secret;
 
     public:
-        void new_contact();
+        bool new_contact();
         std::string get_f_name();
         std::string get_l_name();
         std::string get_nickname();

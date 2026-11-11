@@ -1,17 +1,21 @@
 #ifndef PHONEBOOK_H
 #define PHONEBOOK_H
 
-#include <string>
 #include "Contact.hpp"
+
+#define MAX 8
 
 class PhoneBook {
     public:
-        Contact contact_list[8];
+        int added_contacts;
+        int index;
+        Contact contact_list[MAX];
 
     public:
+        PhoneBook() : added_contacts(0), index(0) {}
         void create_contact();
-        std::string add_to_list(Contact contact);
-        std::string get_list();
+        void add_to_list(Contact contact);
+        void print_list();
 };
 
 #endif
