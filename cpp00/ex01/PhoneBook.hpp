@@ -11,11 +11,15 @@ class PhoneBook {
         int index;
         Contact contact_list[MAX];
 
+    private:
+        void display_user();
+        int get_list_size();
+
     public:
         PhoneBook() : added_contacts(0), index(0) {}
         void create_contact();
         void add_to_list(Contact contact);
-        void print_list();
+        void display_list();
 };
 
 #endif

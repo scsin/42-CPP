@@ -9,7 +9,7 @@ enum Option {
     EXIT
 };
 
-void    print_message(std::string msg);
+void    print_message(std::string msg, bool new_line);
 void    greetings();
 bool    value_is_empty(
         std::string f_name,

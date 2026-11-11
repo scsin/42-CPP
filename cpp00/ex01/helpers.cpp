@@ -1,17 +1,19 @@
 #include <iostream>
 #include "helpers.hpp"
 
-void    print_message(std::string msg)
+void    print_message(std::string msg, bool new_line)
 {
-    std::cout << msg << "\n";
+    std::cout << msg;
+    if (new_line)
+        std::cout << "\n";
 }
 
 void    greetings()
 {
-    print_message("Welcome to Awesome PhoneBook");
-    print_message("0. ADD: save a new contact");
-    print_message("1. SEARCH: display a specific contact");
-    print_message("2. EXIT: quit program");
+    print_message("Welcome to Awesome PhoneBook", true);
+    print_message("0. ADD: save a new contact", true);
+    print_message("1. SEARCH: display a specific contact", true);
+    print_message("2. EXIT: quit program", true);
 }
 
 bool    value_is_empty(

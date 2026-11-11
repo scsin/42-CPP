@@ -4,15 +4,15 @@
 
 bool Contact::new_contact()
 {
-    print_message("Type first name: ");
+    print_message("Type first name: ", false);
     std::getline(std::cin, f_name);
-    print_message("Type last name: ");
+    print_message("Type last name: ", false);
     std::getline(std::cin, l_name);
-    print_message("Type nickname: ");
+    print_message("Type nickname: ", false);
     std::getline(std::cin, nickname);
-    print_message("Type phone number: ");
+    print_message("Type phone number: ", false);
     std::getline(std::cin, p_number);
-    print_message("Type darkest secret: ");
+    print_message("Type darkest secret: ", false);
     std::getline(std::cin, d_secret);
     if (value_is_empty(f_name, l_name, nickname, p_number, d_secret))
         return (false);

@@ -4,6 +4,7 @@
 
 int option_converter(std::string option)
 {
+    // trim the spaces before and after the value of option
     if (option == "ADD" || option == "0")
         return ADD;
     else if (option == "SEARCH" || option == "1")
@@ -26,10 +27,10 @@ int main()
         if (option_int == 0)
             phonebook.create_contact();
         if (option_int == 1)
-            phonebook.print_list();
-        print_message("Enter one command: ");
+            phonebook.display_list();
+        print_message("Enter one command: ", false);
         std::getline(std::cin, option);
         option_int = option_converter(option);
     }
-    print_message("Exiting Awesome PhoneBook");
+    print_message("Exiting Awesome PhoneBook", true);
 }
