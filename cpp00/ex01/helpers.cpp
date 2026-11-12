@@ -29,7 +29,7 @@ bool    value_is_empty(
             || p_number.empty()
             || d_secret.empty())
     {
-        perror("Error: field can't be empty");
+        print_message("Error: field can't be empty", true);
         return (true);
     }
     return (false);

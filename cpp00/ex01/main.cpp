@@ -4,7 +4,6 @@
 
 int option_converter(std::string option)
 {
-    // trim the spaces before and after the value of option
     if (option == "ADD" || option == "0")
         return ADD;
     else if (option == "SEARCH" || option == "1")

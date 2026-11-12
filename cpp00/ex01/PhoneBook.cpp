@@ -16,6 +16,8 @@ void PhoneBook::add_to_list(Contact contact)
 {
     contact_list[added_contacts] = contact;
     added_contacts = (added_contacts + 1) % MAX;
+    if (contact_count < MAX)
+        contact_count++;
 }
 
 std::string formatColumn(std::string text)
@@ -48,6 +50,11 @@ void PhoneBook::print_info(int count, int index)
     std::cout << "\n";
 }
 
+int PhoneBook::get_size()
+{
+    return contact_count;
+}
+
 void PhoneBook::display_user()
 {
     std::string user_index;
@@ -61,7 +68,7 @@ void PhoneBook::display_user()
     }
     if (user_index_converted > 0 && user_index_converted <= 8
             && !contact_list[user_index_converted - 1].get_f_name().empty()
-            && user_index_converted - 1 <= (int)contact_list.size())
+            && user_index_converted - 1 <= get_size())
         print_info(user_index_converted, user_index_converted - 1);
     else
         print_message("Not a valid index. Returning to main menu.", true);
@@ -70,7 +77,7 @@ void PhoneBook::display_user()
 void PhoneBook::display_list()
 {
     int count = 0;
-    while (count < MAX && !contact_list.empty()
+    while (count < MAX && get_size() > 0
             && !contact_list[index].get_f_name().empty())
     {
         print_info(count + 1, index);
