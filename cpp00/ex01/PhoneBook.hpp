@@ -2,6 +2,7 @@
 #define PHONEBOOK_H
 
 #include "Contact.hpp"
+#include <array>
 
 #define MAX 8
 
@@ -9,11 +10,11 @@ class PhoneBook {
     public:
         int added_contacts;
         int index;
-        Contact contact_list[MAX];
+        std::array<Contact, MAX> contact_list;
 
     private:
+        void print_info(int count, int index);
         void display_user();
-        int get_list_size();
 
     public:
         PhoneBook() : added_contacts(0), index(0) {}
