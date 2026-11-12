@@ -3,7 +3,8 @@ C++				= c++
 C++FLAGS	= -Wall -Wextra -Werror -std=c++98
 REPLACE		= *.replace
 
-SRC				= main.cpp
+SRC				= main.cpp \
+				  file_helpers.cpp
 
 OBJ				= $(SRC:.cpp=.o)
 
@@ -23,6 +24,6 @@ clean:
 fclean: clean
 	rm -f $(NAME)
 
-re: all clean fclean
+re: fclean all
 
 .PHONY: all re clean fclean
