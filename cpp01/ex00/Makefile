@@ -1,6 +1,6 @@
 NAME	= ex00
-C++		= c++
-CFLAGS	= -Wall -Werror -Wextra -std=c++98
+CXX		= c++
+CXXFLAGS	= -Wall -Werror -Wextra -std=c++98
 
 SRC		= main.cpp \
 			Zombie.cpp \
@@ -12,7 +12,7 @@ OBJ		= $(SRC:.cpp=.o)
 all: $(NAME)
 
 $(NAME): $(OBJ)
-	$(C++) $(CFLAGS) $(OBJ) -o $(NAME)
+	$(CXX) $(CFLAGS) $(OBJ) -o $(NAME)
 
 clean:
 	rm -f $(OBJ)
@@ -22,4 +22,4 @@ fclean: clean
 
 re: fclean all
 
-.PHONY = all clean fclean re
+.PHONY: all clean fclean re

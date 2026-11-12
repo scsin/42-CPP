@@ -1,6 +1,6 @@
 NAME			= ex03
-C++				= c++
-C++FLAGS	= -Wall -Wextra -Werror -std=c++98
+CXX				= c++
+CXXFLAGS	= -Wall -Wextra -Werror -std=c++98
 
 SRC				= main.cpp \
 						Weapon.cpp \
@@ -13,11 +13,11 @@ all: $(NAME)
 
 # Compiling
 %.o: %.cpp
-	$(C++) $(C++FLAGS) -c $< -o $@
+	$(CXX) $(CXXFLAGS) -c $< -o $@
 
 # Linking
 $(NAME): $(OBJ)
-	$(C++) $(C++FLAGS) $(OBJ) -o $(NAME)
+	$(CXX) $(CXXFLAGS) $(OBJ) -o $(NAME)
 
 clean:
 	rm -f $(OBJ)
@@ -25,6 +25,6 @@ clean:
 fclean: clean
 	rm -f $(NAME)
 
-re: all clean fclean
+re: fclean all
 
 .PHONY: all re clean fclean

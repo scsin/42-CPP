@@ -1,6 +1,6 @@
 NAME		= ex01
-C++			= c++
-C++FLAGS	= -Wall -Wextra -Werror -std=c++98
+CXX			= c++
+CXXFLAGS	= -Wall -Wextra -Werror -std=c++98
 SANITIZER_FLAGS = -g -O1 -fsanitize=address,undefined -fno-omit-frame-pointer
 
 SRC			= main.cpp \
@@ -13,13 +13,13 @@ all: $(NAME)
 
 # Linking
 $(NAME): $(OBJ)
-	$(C++) $(C++FLAGS) $(OBJ) -o $(NAME)
+	$(CXX) $(CXXFLAGS) $(OBJ) -o $(NAME)
 
 # Compiling
 %.o: %.cpp
-	$(C++) $(C++FLAGS) -c $< -o $@
+	$(CXX) $(CXXFLAGS) -c $< -o $@
 
-debug-asan: C++FLAGS += $(SANITIZER_FLAGS)
+debug-asan: CXXFLAGS += $(SANITIZER_FLAGS)
 
 debug-asan: clean all
 

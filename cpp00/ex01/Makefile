@@ -1,6 +1,6 @@
 NAME            = phonebook
-C++             = c++
-C++FLAGS        = -Wall -Wextra -Werror -std=c++98
+CXX				= c++
+CXXFLAGS		= -Wall -Wextra -Werror -std=c++98
 
 SRC             = main.cpp \
 				  helpers.cpp \
@@ -13,18 +13,18 @@ all: $(NAME)
 
 # Linking
 $(NAME): $(OBJ)
-	$(C++) $(C++FLAGS) $(OBJ) -o $(NAME)
+	$(CXX) $(CXXFLAGS) $(OBJ) -o $(NAME)
 
 # Compiling
 %.o: %.cpp
-	$(C++) $(C++FLAGS) -c $< -o $@
+	$(CXX) $(CXXFLAGS) -c $< -o $@
 
 clean:
 	rm -f $(OBJ)
 
-fclean:
+fclean: clean
 	rm -f $(NAME)
 
 re: fclean all
 
-.PHONY = all clean fclean re
+.PHONY: all clean fclean re

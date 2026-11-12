@@ -1,6 +1,6 @@
 NAME			= ex04
-C++				= c++
-C++FLAGS	= -Wall -Wextra -Werror -std=c++98
+CXX				= c++
+CXXFLAGS	= -Wall -Wextra -Werror -std=c++98
 REPLACE		= *.replace
 
 SRC				= main.cpp \
@@ -12,11 +12,11 @@ all: $(NAME)
 
 # Compiling
 %.o: %.cpp
-	$(C++) $(C++FLAGS) -c $< -o $@
+	$(CXX) $(CXXFLAGS) -c $< -o $@
 
 # Linking
 $(NAME): $(OBJ)
-	$(C++) $(C++FLAGS) $(OBJ) -o $(NAME)
+	$(CXX) $(CXXFLAGS) $(OBJ) -o $(NAME)
 
 clean:
 	rm -f $(OBJ) $(REPLACE)
@@ -26,4 +26,4 @@ fclean: clean
 
 re: fclean all
 
-.PHONY: all re clean fclean
+.PHONY: all clean fclean re
