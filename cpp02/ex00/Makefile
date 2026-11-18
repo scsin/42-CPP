@@ -5,13 +5,17 @@ CXXFLAGS	= -Wall -Wextra -Werror -std=c++98
 SRC			= main.cpp \
 			  Fixed.cpp
 
-OBJ			= $(SRC=.cpp:.o)
+OBJ			= $(SRC:.cpp=.o)
 
 all: $(NAME)
 
-# Linking
-
 # Compiling
+%.o: %.cpp
+	$(CXX) $(CXXFLAGS) -c $< -o $@
+
+# Linking
+$(NAME): $(OBJ)
+	$(CXX) $(CXXFLAGS) $(OBJ) -o $(NAME)
 
 clean:
 	rm -f $(OBJ)
