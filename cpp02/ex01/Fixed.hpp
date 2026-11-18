@@ -22,6 +22,6 @@ class Fixed {
         ~Fixed( void );
 };
 
-std::ostream& operator<<(std::ostream& out, const Fixed& value);
+std::ostream& operator<<(std::ostream& out, const Fixed& value); // operator overloading
 
 #endif
