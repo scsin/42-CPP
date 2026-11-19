@@ -3,9 +3,9 @@
 class ClapTrap {
     private:
         std::string name;
-        int hit_points;
-        int energy_points;
-        int attack_damage;
+        unsigned int _hitPoints;
+        unsigned int _energyPoints;
+        unsigned int _attackDamage;
 
     public:
         void attack(const std::string& target);
@@ -14,6 +14,6 @@ class ClapTrap {
 
         ClapTrap(std::string name);
         ClapTrap( const ClapTrap& ct ); // copy constructor
-        ClapTrap operator=( const ClapTrap& ct ); // copy assignment
+        ClapTrap& operator=( const ClapTrap& ct ); // copy assignment
         ~ClapTrap();
 };
