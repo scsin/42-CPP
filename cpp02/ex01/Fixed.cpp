@@ -1,4 +1,5 @@
 #include <iostream>
+#include <cmath>
 #include "Fixed.hpp"
 
 int Fixed::getRawBits( void ) const {
