@@ -1,29 +1,44 @@
-#include "ClapTrap.hpp"
 #include "ScavTrap.hpp"
 #include <iostream>
 #include <string>
 
 void ScavTrap::attack(const std::string& target) {
-	// what happens with the validations inside ClapTrap? do they got 'injected' here?
+	if (!ClapTrap::canAttack() || ClapTrap::samePlayer(target))
+		return ;
+
     std::cout << "ScavTrap [" << name
-        << "] attacks [" << target <<
-        "], causing " << _attackDamage <<
-        " points of damage!" << std::endl;
+		<< "] attacks [" << target
+		<< "], causing " << _attackDamage
+		<< " points of damage!" << std::endl;
+    this->_energyPoints--;
 }
+
+void ScavTrap::guardGate() {
+	std::cout << "ScavTrap [" << name << "] is now in Guard Gate mode" << "\n";
+}
+
+ScavTrap::ScavTrap ( void ) {};
 
 ScavTrap::ScavTrap (std::string name) : ClapTrap(name) {
-	std::cout << "ScavTrap [" << name << "] constructor called" << "\n";
+	std::cout << "ScavTrap [" << name << "] constructor called" << "\n\n";
 }
 
-ScavTrap::ScavTrap ( const ScavTrap& st ) : ClapTrap() { // copy constructor
-	std::cout << "ScavTrap copy constructor called" << "\n";
+ScavTrap::ScavTrap ( const ScavTrap& st ) : ClapTrap(st.name) { // copy constructor
+	this->_hitPoints = 100;
+	this->_energyPoints = 50;
+	this->_attackDamage = 20;
+	std::cout << "ScavTrap [" << name << "] copy constructor called" << "\n\n";
 }
 
 ScavTrap& ScavTrap::operator=( const ScavTrap& st ) { // copy assignment
-	std::cout << "ScavTrap copy assignment called" << "\n";
+	if (this != &st)
+	{
+		this->name = st.name;
+		std::cout << "ScavTrap [" << name << "] copy assignment called" << "]\n\n";
+	}
 	return (*this);
 }
 
 ScavTrap::~ScavTrap () {
-	std::cout << "ScavTrap destructor called" << "\n";
+	std::cout << "\nScavTrap [" << name << "] at the address [" << this << "] destructor called" << "\n";
 }

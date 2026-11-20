@@ -7,8 +7,10 @@ int main()
     ScavTrap a("Milo");
     a.attack("Milo");
     ScavTrap b = a;
-    b.attack("Moon");
+    b.attack("Milo");
     ScavTrap d(c);
+	d.takeDamage(5);
     d.beRepaired(1);
+	d.guardGate();
     return (0);
 }
