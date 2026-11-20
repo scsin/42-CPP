@@ -12,6 +12,7 @@ class ClapTrap {
         void takeDamage(unsigned int amount);
         void beRepaired(unsigned int amount);
 
+		ClapTrap( void );
         ClapTrap(std::string name);
         ClapTrap( const ClapTrap& ct ); // copy constructor
         ClapTrap& operator=( const ClapTrap& ct ); // copy assignment

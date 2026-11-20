@@ -38,6 +38,8 @@ void ClapTrap::beRepaired(unsigned int amount) {
     this->_energyPoints--;
 }
 
+ClapTrap::ClapTrap ( void ) {};
+
 ClapTrap::ClapTrap(std::string name) : _hitPoints(10), _energyPoints(10), _attackDamage(0) {
     std::cout << "ClapTrap [" << name << "] constructor called" << std::endl;
     this->name = name;
