@@ -17,7 +17,9 @@ void ScavTrap::guardGate() {
 	std::cout << "ScavTrap [" << name << "] is now in Guard Gate mode" << "\n";
 }
 
-ScavTrap::ScavTrap ( void ) {};
+ScavTrap::ScavTrap ( void ) {
+    std::cout << "ScavTrap [" << name << "] default constructor called" << std::endl;
+};
 
 ScavTrap::ScavTrap (std::string name) : ClapTrap(name) {
 	std::cout << "ScavTrap [" << name << "] constructor called" << "\n\n";

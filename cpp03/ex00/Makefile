@@ -15,7 +15,7 @@ all: $(NAME)
 
 # Compiling
 $(NAME): $(OBJ)
-	$(CXX) $(CXXFLAGS)  $(OBJ) -o $(NAME)
+	$(CXX) $(CXXFLAGS) $(OBJ) -o $(NAME)
 
 clean:
 	rm -f $(OBJ)
