@@ -16,18 +16,18 @@ FragTrap::FragTrap( std::string name ) : ClapTrap(name) {
     std::cout << "FragTrap [" << name << "] constructor called" << std::endl;
 }
 
-FragTrap::FragTrap( const FragTrap& ft ) : ClapTrap(ft.name) { // copy constructor
-    this->_hitPoints = ft._hitPoints;
-    this->_energyPoints = ft._energyPoints;
-    this->_attackDamage = ft._attackDamage;
+FragTrap::FragTrap( const FragTrap& ft ) : ClapTrap(ft) { // copy constructor
     std::cout << "FragTrap [" << name << "] copy constructor called" << std::endl;
 }
 
-FragTrap& FragTrap::operator=( const FragTrap& ft )  { // copy assignment
+FragTrap& FragTrap::operator=( const FragTrap& ft ) { // copy assignment
     if (this != &ft) {
-
+		this->name = ft.name;
+		this->_hitPoints = ft._hitPoints;
+		this->_energyPoints = ft._energyPoints;
+		this->_attackDamage = ft._attackDamage;
+		std::cout << "FragTrap [" << name << "] copy assignment called" << std::endl;
     }
-    std::cout << "FragTrap [" << name << "] copy assignment called" << std::endl;
     return (*this);
 }
 

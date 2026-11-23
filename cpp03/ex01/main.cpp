@@ -5,8 +5,9 @@ int main()
     ScavTrap c("Robot");
     c.attack("Paçoquita");
     ScavTrap a("Milo");
-    a.attack("Milo");
-    ScavTrap b = a;
+    a.attack("Gandalf");
+    ScavTrap b;
+	b = a;
     b.attack("Milo");
     ScavTrap d(c);
 	d.takeDamage(5);

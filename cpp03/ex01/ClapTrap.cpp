@@ -43,14 +43,14 @@ void ClapTrap::beRepaired(unsigned int amount) {
         std::cout << "Can't repair, not enough energy / hit points" << std::endl;
         return ;
     }
-    this->_hitPoints++;
+    this->_hitPoints += amount;
     this->_energyPoints--;
     std::cout << "ClapTrap [" << name <<
         "] took a life potion, recovering " << amount <<
         " point of life. Total: " << _hitPoints << std::endl;
 }
 
-ClapTrap::ClapTrap ( void ) {
+ClapTrap::ClapTrap ( void ) : _hitPoints(10), _energyPoints(10), _attackDamage(0) {
     std::cout << "ClapTrap [" << name << "] default constructor called" << std::endl;
 };
 
@@ -80,5 +80,5 @@ ClapTrap& ClapTrap::operator=( const ClapTrap& ct ) { // copy assignment
 }
 
 ClapTrap::~ClapTrap() {
-    std::cout << "ClapTrap [" << name << "] destructor called" << std::endl;
+    std::cout << "ClapTrap [" << name << "] at address [" << this << "] destructor called" << std::endl;
 }
