@@ -14,13 +14,14 @@ class Animal {
         Animal( std::string type );
         Animal( const Animal& an ); // copy constructor
         Animal& operator=( const Animal& an ); // copy assignment
-        ~Animal();
+        virtual ~Animal();
 };
 
 #include <iostream>
 class WrongAnimal {
     public:
         void makeSound() const { std::cout << "WrongAnimal sound\n"; };
+		~WrongAnimal();
 };
 
 #endif

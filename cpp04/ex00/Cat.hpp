@@ -16,7 +16,7 @@ class Cat : public Animal {
 
 class WrongCat : public WrongAnimal {
     public:
-        void makeSound();
+        void makeSound() { std::cout << "WrongMiauu"; };
 };
 
 #endif

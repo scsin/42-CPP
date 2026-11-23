@@ -6,26 +6,28 @@ void Animal::makeSound() const {
 }
 
 std::string Animal::getType( void ) const {
-    return(type);
+    return (type);
 }
 
 Animal::Animal( void ) {
+	type = "Animal";
     std::cout << "Animal default constructor called" << "\n";
 }
 
-Animal::Animal ( std::string type ) {
-    (void)type;
+Animal::Animal ( std::string type ) : type(type) {
     std::cout << "Animal constructor called" << "\n";
 }
 
 Animal::Animal ( const Animal& an ) { // copy constructor
-    (void)an;
+    this->type = an.type;
     std::cout << "Animal copy constructor called" << "\n";
 }
 
 Animal& Animal::operator=( const Animal& an ) { // copy assignment
-    (void)an;
-    std::cout << "Animal copy assignment called" << "\n";
+    if (this != &an) {
+		this->type = an.type;
+		std::cout << "Animal copy assignment called" << "\n";
+	}
     return (*this);
 }
 

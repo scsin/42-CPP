@@ -10,19 +10,17 @@ Cat::Cat( void ) : Animal() {
     std::cout << type << " default constructor called" << "\n";
 }
 
-Cat::Cat( std::string type ) : Animal("Cat") {
-    (void)type;
+Cat::Cat( std::string type ) : Animal(type) {
     std::cout << "Cat constructor called" << "\n";
 }
 
-Cat::Cat( const Cat& ct ) : Animal("Cat") {
-    (void)ct;
+Cat::Cat( const Cat& ct ) : Animal(ct) {
     std::cout << "Cat copy constructor called" << "\n";
 }
 
 Cat& Cat::operator=( const Cat& ct ) {
-    (void)ct;
-    std::cout << "Cat copy assignment called" << "\n";
+	if (this != &ct)
+		std::cout << "Cat copy assignment called" << "\n";
     return (*this);
 }
 

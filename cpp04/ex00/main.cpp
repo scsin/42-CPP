@@ -20,5 +20,10 @@ int main()
     a->makeSound();
     wa->makeSound();
 
+    std::cout << std::endl;
+	delete(a);
+	delete(d);
+	delete(c);
+	delete(wa);
     return 0;
 }

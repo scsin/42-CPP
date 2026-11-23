@@ -10,19 +10,17 @@ Dog::Dog( void ) : Animal() {
     std::cout << type << " default constructor called" << "\n";
 }
 
-Dog::Dog( std::string type ) : Animal("Dog") {
-    (void)type;
+Dog::Dog( std::string type ) : Animal(type) {
     std::cout << "Dog constructor called" << "\n";
 }
 
-Dog::Dog( const Dog& dg ) : Animal("Dog") { // copy constructor
-    (void)dg;
+Dog::Dog( const Dog& dg ) : Animal(dg) { // copy constructor
     std::cout << "Dog copy constructor called" << "\n";
 }
 
 Dog& Dog::operator=( const Dog& dg ) { // copy assignment
-    (void)dg;
-    std::cout << "Dog copy assignment called" << "\n";
+	if (this != &dg)
+	    std::cout << "Dog copy assignment called" << "\n";
     return (*this);
 }
 
