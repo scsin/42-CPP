@@ -4,9 +4,9 @@
 #include <string>
 
 class Brain {
-	std::string ideas[100];
-
 	public:
+		std::string ideas[100];
+
 		Brain( void );
 		Brain( const Brain& b ); // copy constructor
 		Brain& operator=( const Brain& b ); // copy assignment
